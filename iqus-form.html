@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainDiv {
+            margin: 20px auto;
+            width: 500px;
+            padding: 10px;
+            box-shadow: 0px 0px 20px gray;
+            border-radius: 10px;
+            background-color: white
+        }
+
+        .label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .a:hover {
+            background-color: green;
+            color: white;
+        }
+
+        .remark {
+            vertical-align: top;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* if i need then i use input width 
+        .input{
+            width: 300px;
+        } */
+        body{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainDiv">
+        <h1>Student Registration Form</h1>
+        <hr>
+        <form action="" name="formData">
+            <div>
+                <div>
+                    <label class="label" for="userName">User Name:</label>
+                    <input id="userName" type="text" placeholder="user name" autofocus>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label class="label" for="contacts">Contacts:</label>
+                    <input id="contacts" type="number" placeholder="017xxxx" autofocus>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label class="label remark" for="remark">Remark:</label>
+                    <textarea name="remark" id="remark" cols="30" rows="5"
+                        placeholder="Tell something about you."></textarea>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label class="label" for="Gender">Gender:</label>
+
+                    <input type="radio" id="male" name="gender">
+                    <label for="male">Male:</label>
+                    <input type="radio" id="female" name="gender">
+                    <label for="female">Female:</label>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label class="label" for="course">Course:</label>
+                    <input id="nt" type="checkbox" name="course">
+                    <label for="nt">NT</label>
+                    <input id="WDPF" type="checkbox" name="course">
+                    <label for="WDPF">WDPF</label>
+                    <input id="DDD" type="checkbox" name="course">
+                    <label for="DDD">DDD</label>
+                    <input id="J2EE" type="checkbox" name="course">
+                    <label for="J2EE">J2EE</label>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label class="label" for="location">Location:</label>
+                    <select name="location" id="location">
+                        <option value="Mirpur 10">Mirpur 10</option>
+                        <option value="Kazipara">Kazipara</option>
+                        <option value="Agargaon">Agargaon</option>
+                        <option value="Shewrapara">Shewrapara</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label class="label" for=""></label>
+                    <input class="a" id="submit" name="submit" type="button" value="Submit" onclick="check()">
+                    <input class="a" id="reset" name="reset" type="reset" value="Reset">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function check() {
+            var userName = document.formData.userName.value;
+            var contacts = document.formData.contacts.value;
+            var remark = document.formData.remark.value;
+            var gender = document.formData.gender.value;
+            let course = [];
+            var location = document.formData.location.value;
+            var mc = document.querySelectorAll('input[name="course"]:checked');
+            for (var checkbox of mc) {
+                course.push(checkbox.value);
+            }
+            var w = window.open("", "_blank", "width=550,height=400");
+            w.document.write(
+                `<!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>result</title>
+                    <style>
+                        * {
+                            font-size: 20px;
+                        }
+                    </style>
+                </head>
+
+                <body>
+                    <ol>
+                        <li>Uname: ${userName}</li>
+                        <li>Contact: ${contacts}</li>
+                        <li>Remark: ${remark}</li>
+                        <li>Gender: ${gender}</li>
+                        <li>Course: ${course}</li>
+                        <li>Location: ${location}</li>
+                    </ol>
+                </body>
+
+                </html>`
+            );
+        }
+    </script>
+
+</body>
+
+</html>
