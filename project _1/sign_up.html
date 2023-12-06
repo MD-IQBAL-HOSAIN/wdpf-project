@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+<style>
+h1 {
+    text-align: center;
+    text-wrap: wrap;
+    color: brown;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+    
+}
+.mlabel {
+    margin: 10px;
+    display: inline-block;
+   margin: 10px;
+    padding: 5px;
+    width: 100px;
+    text-shadow: 0px 0px 5px green;
+    
+    border-radius: 10px;
+}
+
+.mlabel.inlinelab{
+    display: inline;
+}
+
+input[type]{
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgb(211, 100, 10);
+    background-color: rgb(189, 174, 202);
+    
+   
+}
+/* input[type="placeholder"]{
+    width: 60%;
+} */
+
+input[type="text"]{
+    color:chocolate;
+}
+form {
+    margin: 20px;
+   
+}
+/* div{
+   bold-text ;
+    color: rgba(8, 251, 16, 0.696); 
+    
+} */
+
+</style>
+
+</head>
+<body>
+    <h1>Iqu's world form registration</h1> <hr>
+    
+    <form action="">
+        <fieldset>
+
+            <legend>Name</legend>
+           <div> 
+            <label class="mlabel" for="firstname">first name:</label>
+            <input style="width: 60%;" type="text" id="firstname" name="" placeholder="first name">
+
+        </div>
+
+        <div>
+            <label  class="mlabel" for="lastname">last name:</label>
+            <input style="width: 60%;" type="text" name="" id="lastname" placeholder="last name">
+
+        </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Login info</legend>
+            <div>
+                <label  class="mlabel" for="email">Email:</label>
+                <input style="width: 60%;" type="text" name="" id="email" placeholder="email">
+
+            </div>
+            <div>
+                <label  class="mlabel" for="password">password</label>
+                <input style="width: 60%;" type="text" id="password" placeholder="********">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Personal Info</legend>
+            <div>
+            <label  class="mlabel" for="mobile">Mobile:</label>
+            <input style="width: 60%;" type="text" name="" id="mobile" placeholder="016xxxxxx">
+
+            </div>
+            <div>
+                <label  class="mlabel" for="image">Image:</label>
+                <input type="file" name="" id="image">
+            </div>
+            <div>
+                <label class="mlabel" for="dob">Date of Birth:</label>
+                <input type="date" name="" id="dob">
+            </div>
+            <div>
+                <label  class="mlabel" for="gender">Gender:</label>
+                <input type="radio" name="gender" id="male" >
+                <label class="mlabel inlinelab"  for="male" >Male</label>|
+
+                <input type="radio" name="gender" id="female">
+                <label class="mlabel inlinelab" for="female">Female</label>|
+
+                <input type="radio" name="gender" id="other">
+                <label class="mlabel inlinelab"  for="other">Others</label>|
+                </div>
+
+                <div>
+                <label  class="mlabel" for="age">AGE:</label>
+                <input type="number" name="" id="age" min="18" max="60">
+            </div>
+
+            <div>
+                <label  class="mlabel" for="hobby">Hobby:</label>
+                <input type="checkbox" id="ckt">
+                <label class="mlabel inlinelab" for="ckt">Cricket</label>|
+                <input type="checkbox" id="Baddminton">
+                <label class="mlabel inlinelab" for="Baddminton">Baddminton</label>|
+                <input type="checkbox" id="Football">
+                <label class="mlabel inlinelab" for="Football">Football</label>|
+
+            </div>
+        </fieldset>
+
+            <!-- <fieldset>
+                <legend>Academic info</legend>
+                <div>
+                    <label  class="mlabel" for="batch">Batch:</label>
+                    <select name="" id="batch">
+                        <option value="">C#</option>
+                        <option value="">GAVE</option>
+                        <option value="" selected>WDPF</option>
+                        <option value="">DDD</option>
+                        <option value="">.NET</option>
+                        <option value="">JAVA</option>
+                    </select> 
+                </div>
+                    
+            </fieldset> -->
+
+
+            
+            <div>
+                <label style="vertical-align: top;" class="mlabel" for="details">Your Details:</label> <br>
+                <textarea  style="width: 100%;" name="" id="details" cols="30" rows="6"></textarea>
+            </div>
+        
+            <div>
+            <input  class="mlabel" type="reset" value="Reset">
+            <input  class="mlabel" type="submit" value="Submit">
+        </div>
+
+
+       
+       
+    </form>
+</body>
+</html>
