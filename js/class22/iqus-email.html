@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail check</title>
+</head>
+<body>
+    <script>
+       class ckmail{
+        constructor(email){this.mail = email };
+        atck(){
+            if(this.mail.indexOf("@")!="-1")return true;
+            else return false;
+        }
+
+        dotck(){
+            if(this.mail.indexOf(".")!="-1")return true;
+            else return false;
+        }
+
+       }
+       let mail = prompt("Enter the email address");
+       let check = new ckmail(mail);
+       if(check.atck() && check.dotck()) {
+        alert("The email address is correct")
+       }
+       else alert("The email address is wrong");
+        
+    </script>
+</body>
+</html>

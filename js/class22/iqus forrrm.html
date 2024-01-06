@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mDiv {
+            width: 500px;
+            margin: 20px auto;
+            /* border: 5px solid red; */
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mDiv">
+        <form action="" name="forms">
+            <label for="">user name:</label>
+            <input type="text" id="username" name="username">
+            <br>
+            <label for="">contact:</label>
+            <input type="text" name="contact" id="contact">
+            <br>
+            <label for="">remark:</label>
+            <input type="text" name="remark" id="remark">
+            <br>
+            <label for="">sex:</label>
+            <input type="radio" name="sex" value="Male">Male
+            <input type="radio" name="sex" value="Female">Female
+            <br>
+            <label for="">course:</label>
+            <input type="checkbox" name="course" value="NT">NT
+            <input type="checkbox" name="course" value="WPSI">WPSI
+            <input type="checkbox" name="course" value="DDD">DDD
+            <input type="checkbox" name="course" value="J2EE">J2EE
+            <br>
+            <label for="">location</label>
+            <select id="location">
+                <option value="-1">select</option>
+                <option value="Mirpur">Mirpur</option>
+                <option value="Banani">Banani</option>
+                <option value="Dhanmondi">Dhanmondi</option>
+            </select>
+            <br>
+            <label for=""></label>
+            <input type="button" value="submit" onclick="formvalue()">
+        </form>
+    </div>
+
+    <script>
+        class MyForm {
+            errors = [];
+            constructor(n = null, c = null, r = null, s = null, co = null, loc = null) {
+                this.name = n;
+                this.contact = c;
+                this.remark = r;
+                this.sex = s;
+                this.course = co;
+                this.location = loc;
+            };
+            validate() {
+                if (!this.name.length) { this.errors['name'] = "name cannot be empty"; }
+
+                if (!this.contact.length) { this.errors['contact'] = "contact cannot be empty"; }
+
+                if (!this.remark.length) { this.errors['remark'] = "remark cannot be empty"; }
+
+                if (!this.sex.length) { this.errors['sex'] = "sex cannot be empty"; }
+
+                if (!this.course.length) { this.errors['course'] = "course cannot be empty"; }
+
+                if (this.location == "-1") { this.errors['location'] = "please select your location" }
+                //console.log(this.errors);
+
+                if (!Object.keys(this.errors).length) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            show(){
+                var w = window.open("","","width=400px, height=300px");
+                w.document.write("name: "+this.name+ "<br>");
+                w.document.write("contact: "+this.contact+ "<br>");
+                w.document.write("remark: "+this.remark+ "<br>");
+                w.document.write("sex: "+this.sex+ "<br>");
+                w.document.write("course: "+this.course+ "<br>");
+                w.document.write("location: "+this.location+ "<br>");
+            }
+            error(){
+                alert(Object.keys(this.errors)+"fields has error");
+            }
+        }
+
+        function formvalue(){
+            let name = document.getElementById("username").value;
+            let contact = document.getElementById("contact").value;
+            let remark = document.getElementById("remark").value;
+            let sex = document.forms.sex.value;
+            let course = [];
+            var markedCheckbox = document.querySelectorAll('input[name="course"]:checked');
+            for (var checkbox of markedCheckbox){
+                course.push(checkbox.value);
+            }
+            let location = document.getElementById("location").value;
+            
+            let form = new MyForm (name, contact, remark, sex, course, location);
+
+            if (form.validate()){form.show();}
+            else {form.error();}
+        }
+    </script>
+</body>
+
+</html>
